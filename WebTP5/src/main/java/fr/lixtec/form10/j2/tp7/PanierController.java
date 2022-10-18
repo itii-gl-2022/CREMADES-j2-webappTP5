@@ -1,4 +1,4 @@
-package fr.lixtec.form10.j2.exo3;
+package fr.lixtec.form10.j2.tp7;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -6,18 +6,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class SumServlet
+ * Servlet implementation class ShoppingController
  */
-@WebServlet("*.do")
-public class SumServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
+@WebServlet("/panier")
+public class PanierController extends HttpServlet implements ShoppingInterface{
+	private static final long serialVersionUID = 6838044939512467068L;
+	private static final String VUE_SHOPPING = "/tp5/shopping.jsp";
+	private static final String VUE_QRCODE = "/tp5/panier.jsp";
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SumServlet() {
+    public PanierController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,7 +29,7 @@ public class SumServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		getServletContext().getRequestDispatcher(VUE_SHOPPING).forward(request, response);
 	}
 
 	/**
@@ -35,14 +37,22 @@ public class SumServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		HttpSession session = request.getSession();
 		doGet(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doTrace(HttpServletRequest, HttpServletResponse)
-	 */
-	protected void doTrace(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	@Override
+	public void addProductToCart(Produit product) {
+		// TODO Auto-generated method stub 
+		//Sert à ajouter le produit choisi sur la page de choix 
+		
+		
+	}
+
+	@Override
+	public void checkOut() {
 		// TODO Auto-generated method stub
+		//Sert à push les infos sur la base de données
 	}
 
 }
