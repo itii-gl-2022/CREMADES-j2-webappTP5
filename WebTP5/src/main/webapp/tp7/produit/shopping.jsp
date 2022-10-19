@@ -2,8 +2,8 @@
 	pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<%! 
 
-${
 Produit prod1 = new Produit("0X","1","Pomme","Le légendaire fruit défendu")
 Produit prod2 = new Produit("0Z","2","Bonbon","Pour les grands enfants");
 Produit prod3 = new Produit("0H","3","Perçeuse","Le bricolage a portée de mains");
@@ -12,8 +12,9 @@ ArrayList produits = new ArrayList();
 produits.add(prod1);
 produits.add(prod2);
 produits.add(prod3);
-produits.add(prod4);
-}
+produits.add(prod4); 
+
+%>
 
 <html>
 <head>
@@ -28,7 +29,7 @@ produits.add(prod4);
 			<th>Prix</th>
 			<th>Ajouter au panier</th>
 		</tr>
-		<c:forEach var="product" items="${produits }">
+		<c:forEach var="product" items="${produits}">
 			<tr>
 				<td>${produit.id }</td>
 				<td>${produit.libelle }</td>
