@@ -10,10 +10,12 @@
 <title>Articles dans votre panier</title>
 </head>
 <body>
-	<form action="" method="post">
-		libellé: <input type="text" name="nomproduit" required/><br/>
-		code: <input type="text" name="idproduit" required/><br/>
-		<input type="submit" value="Suivant">
-	</form>
+	<c:forEach items="${itemPaniers }" var="item">
+        <tr>
+            <td>Nom produit : <c:out value="${itemPanier.produit.libelle}"/></td>
+            <td>Prix : <c:out value="${itemPanier.produit.prix}"/></td>  
+            <td>Quantite : <c:out value="${itemPanier.quantite}"/></td>  
+        </tr>
+    </c:forEach>
 </body>
 </html>
