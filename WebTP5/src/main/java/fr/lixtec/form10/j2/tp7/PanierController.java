@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 public class PanierController extends HttpServlet implements ShoppingInterface{
 	private static final long serialVersionUID = 6838044939512467068L;
 	private static final String VUE_SHOPPING = "/tp5/shopping.jsp";
-	private static final String VUE_QRCODE = "/tp5/panier.jsp";
+	private static final String VUE_ADDTOCART = "/tp5/panier.jsp";
     /**
      * @see HttpServlet#HttpServlet()
      */
